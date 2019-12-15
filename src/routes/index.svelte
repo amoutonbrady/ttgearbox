@@ -405,6 +405,7 @@
 						bind:value="{form.car.motorization}"
 						label="Motorisation :"
 					>
+						<option>Essence</option>
 						<option>Diesel</option>
 						<option>Electrique</option>
 						<option>Hybride</option>
