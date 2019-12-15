@@ -185,11 +185,11 @@
 	</picture>
 	<div class="container mx-auto px-4 py-20">
 		<div class="max-w-3xl relative z-30">
-			<h2 class="text-5xl font-bold relatives leading-tight font-display">
+			<h2 class="text-5xl font-bold leading-tight font-display">
 				TT Gearbox
 			</h2>
 
-			<p class="text-xl md:text-2xl relatives mt-4">
+			<p class="text-xl md:text-2xl mt-4">
 				Startup basée à Paris spécialisé dans l’accompagnement
 				d’importation de véhicule RHD provenant du Royaume-uni.
 				<br />
@@ -197,7 +197,7 @@
 				Drive (Volant à droite), il s’agit donc d’un véhicule ayant le
 				volant du côté droit.
 			</p>
-			<p class="text-xl md:text-2xl relatives mt-4">
+			<p class="text-xl md:text-2xl mt-4">
 				Nous avons pour but de permettre à tous de pouvoir acquérir un
 				véhicule à moindre coût !
 				<br />
@@ -205,7 +205,7 @@
 				vos rêves se retrouve dans votre garage.
 			</p>
 
-			<p class="text-xl md:text-2xl relatives mt-4">
+			<p class="text-xl md:text-2xl mt-4">
 				Faire appel à TT Gearbox, c’est faire appel à une équipe
 				sérieuse et à votre écoute.
 				<br />
@@ -246,7 +246,7 @@
 			Nos services
 		</h2>
 
-		<p class="text-xl md:text-2xl relatives mt-4">
+		<p class="text-xl md:text-2xl mt-4">
 			Nous allons vous faire gagner du temps
 		</p>
 
@@ -376,6 +376,14 @@
 		>
 			Nous contacter
 		</h2>
+
+		<p class="text-xl md:text-2xl mt-4">
+			Vous hésitez à faire le grand saut ? N'hésitez pas à nous contacter
+			pour un accompagnement ou un conseil personnalisé durant
+			l’importation de votre nouveau véhicule provenant d’Angleterre. Un
+			devis vous sera envoyé par mail à l’adresse indiqué dans le
+			formulaire ci dessous.
+		</p>
 
 		<form
 			data-netlify="true"
