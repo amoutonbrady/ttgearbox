@@ -389,7 +389,7 @@
 			data-netlify="true"
 			name="contact"
 			method="POST"
-			action="/"
+			action="/POST"
 			class="max-w-2xl mx-auto mt-8"
 		>
 			<fieldset class="mt-10">
