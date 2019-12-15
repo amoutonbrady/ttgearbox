@@ -1,0 +1,10 @@
+{
+	"useTabs": true,
+	"tabWidth": 4,
+	"trailingComma": "all",
+	"semi": true,
+	"singleQuote": true,
+	"htmlWhitespaceSensitivity": "ignore",
+	"svelteStrictMode": true,
+	"svelteBracketNewLine": true
+}

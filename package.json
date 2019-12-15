@@ -1,0 +1,44 @@
+{
+	"name": "tt-gearbox-website",
+	"description": "Onepage website to present TT Gearbox company",
+	"version": "1.0.0",
+	"scripts": {
+		"watch:tailwind": "postcss static/tailwind.css -o static/index.css -w",
+		"build:tailwind": "postcss static/tailwind.css -o static/index.css",
+		"dev": "sapper dev",
+		"build": "cross-env NODE_ENV=production yarn build:tailwind && sapper build",
+		"export": "cross-env NODE_ENV=production yarn build:tailwind && sapper export --legacy",
+		"start": "node __sapper__/build",
+		"format": "prettier --write --plugin-search-dir=. ./**/*.{html,svelte}"
+	},
+	"dependencies": {
+		"@fullhuman/postcss-purgecss": "^1.3.0",
+		"compression": "^1.7.4",
+		"polka": "next",
+		"scroll-behavior-polyfill": "^2.0.13",
+		"sirv": "^0.4.2"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.7.5",
+		"@babel/plugin-syntax-dynamic-import": "^7.7.4",
+		"@babel/plugin-transform-runtime": "^7.7.6",
+		"@babel/preset-env": "^7.7.6",
+		"@babel/runtime": "^7.7.6",
+		"cross-env": "^6.0.3",
+		"cssnano": "^4.1.10",
+		"npm-run-all": "^4.1.5",
+		"postcss-cli": "^6.1.3",
+		"prettier": "^1.19.1",
+		"prettier-plugin-svelte": "^0.7.0",
+		"rollup": "^1.27.12",
+		"rollup-plugin-babel": "^4.3.3",
+		"rollup-plugin-commonjs": "^10.1.0",
+		"rollup-plugin-node-resolve": "^5.2.0",
+		"rollup-plugin-replace": "^2.0.0",
+		"rollup-plugin-svelte": "^5.1.1",
+		"rollup-plugin-terser": "^5.1.3",
+		"sapper": "^0.27.9",
+		"svelte": "^3.16.4",
+		"tailwindcss": "^1.1.4"
+	}
+}
