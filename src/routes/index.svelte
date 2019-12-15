@@ -377,7 +377,7 @@
 			Nous contacter
 		</h2>
 
-		<p class="text-xl md:text-2xl mt-4 max-w-2xl">
+		<p class="text-xl md:text-2xl mt-4 max-w-2xl mx-auto">
 			Vous hésitez à faire le grand saut ? N'hésitez pas à nous contacter
 			pour un accompagnement ou un conseil personnalisé durant
 			l’importation de votre nouveau véhicule provenant d’Angleterre. Un
