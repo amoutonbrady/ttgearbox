@@ -17,8 +17,7 @@
 		FormTextArea,
 	} from '@/components';
 
-	let step = 1;
-	const form = {
+	const initForm = () => ({
 		firstname: '',
 		lastname: '',
 		motive: '',
@@ -38,15 +37,40 @@
 			carType: '',
 		},
 		comment: '',
+	});
+
+	let step = 1;
+	let loading = false;
+	let success;
+	let form = initForm();
+	let formEl;
+	let submitEl;
+
+	const validateStep = () => {
+		const valid = formEl.checkValidity();
+
+		if (!valid) {
+			submitEl.click();
+			return;
+		}
+		step++;
 	};
 
 	const submit = async () => {
-		const ky = (await import('ky')).default;
-		const parsed = await ky
-			.post('/.netlify/functions/mail', { json: form })
-			.json();
-
-		console.log({ parsed });
+		try {
+			loading = true;
+			const ky = (await import('ky')).default;
+			const parsed = await ky
+				.post('/.netlify/functions/mail', { json: form })
+				.json();
+			success = true;
+		} catch (e) {
+			success = false;
+		} finally {
+			step = 1;
+			form = initForm();
+			loading = false;
+		}
 	};
 </script>
 
@@ -350,7 +374,21 @@
 			name="contact"
 			on:submit|preventDefault="{submit}"
 			class="mt-8 flex flex-col"
+			bind:this="{formEl}"
 		>
+			{#if typeof success === 'boolean' && success}
+				<p
+					class="p-6 text-center bg-green-200 text-green-800 rounded
+					mb-6"
+				>
+					Email envoyé avec succès
+				</p>
+			{:else if typeof success === 'boolean' && !success}
+				<p class="p-6 text-center bg-red-200 text-red-800 rounded mb-6">
+					Une erreur est survenue
+				</p>
+			{/if}
+
 			{#if step === 1}
 				<fieldset class="mt-10">
 					<legend class="font-bold uppercase text-sm tracking-wide">
@@ -360,22 +398,26 @@
 						<FormInput
 							bind:value="{form.car.brand}"
 							name="brand"
+							required="{true}"
 							label="{$_('home.contact.form.brand')}"
 						/>
 						<FormInput
 							bind:value="{form.car.model}"
 							name="model"
+							required="{true}"
 							label="{$_('home.contact.form.model')}"
 						/>
 						<FormInput
 							bind:value="{form.car.maxKm}"
 							name="maxKm"
+							required="{true}"
 							label="{$_('home.contact.form.maxKm')}"
 						/>
 
 						<FormSelect
 							bind:value="{form.car.motorization}"
 							name="motorization"
+							required="{true}"
 							label="{$_('home.contact.form.motorization.label')}"
 						>
 							<option>
@@ -398,12 +440,14 @@
 						<FormInput
 							bind:value="{form.car.doors}"
 							name="doors"
+							required="{true}"
 							type="number"
 							label="{$_('home.contact.form.doors')}"
 						/>
 
 						<FormSelect
 							bind:value="{form.car.carType}"
+							required="{true}"
 							name="carType"
 							label="{$_('home.contact.form.carType.label')}"
 						>
@@ -497,14 +541,20 @@
 			{#if step === 1}
 				<button
 					type="button"
-					on:click|preventDefault="{() => step++}"
+					on:click|preventDefault="{validateStep}"
 					class="px-8 py-2 uppercase tracking-wide font-bold border
 					border-gray-800 rounded inline-block mt-16 hover:bg-gray-800
 					hover:text-gray-100 ml-auto"
 					style="transition: all 300ms ease-in-out"
+					disabled="{loading}"
 				>
 					{$_('home.contact.form.next')}
 				</button>
+				<button
+					bind:this="{submitEl}"
+					type="submit"
+					class="hidden"
+				></button>
 			{:else}
 				<div class="flex justify-between">
 					<button
@@ -514,6 +564,7 @@
 						border border-gray-800 rounded inline-block mt-16
 						hover:bg-gray-800 hover:text-gray-100"
 						style="transition: all 300ms ease-in-out"
+						disabled="{loading}"
 					>
 						{$_('home.contact.form.previous')}
 					</button>
@@ -523,6 +574,7 @@
 						border border-gray-800 rounded inline-block mt-16
 						hover:bg-gray-800 hover:text-gray-100"
 						style="transition: all 300ms ease-in-out"
+						disabled="{loading}"
 					>
 						{$_('home.contact.form.submit')}
 					</button>

@@ -2,6 +2,11 @@ require('dotenv').config();
 const sgMail = require('@sendgrid/mail');
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
+const headers = {
+	'Access-Control-Allow-Origin': 'https://ttgearbox.com',
+	'Access-Control-Allow-Headers': 'Content-Type',
+};
+
 exports.handler = async event => {
 	if (!event.body || event.httpMethod !== 'POST') {
 		return {
@@ -17,10 +22,10 @@ exports.handler = async event => {
 
 	try {
 		const msg = {
-			to: 'amoutonbrady@gmail.com',
-			from: 'test@example.com',
-			subject: 'Sending with Twilio SendGrid is Fun',
-			text: 'and easy to do anywhere, even with Node.js',
+			to: process.env.EMAIL_TARGET || 'contact@ttgearbox.com',
+			from: data.email,
+			subject: `[DEMANDE] - ${data.motive}`,
+			text: '?',
 			html: `<pre>${JSON.stringify(data, null, 4)}</pre>`,
 		};
 
@@ -30,7 +35,7 @@ exports.handler = async event => {
 			statusCode: 200,
 			headers,
 			body: JSON.stringify({
-				status: 'It works! Beep Boop',
+				success: true,
 			}),
 		};
 	} catch (err) {
@@ -40,7 +45,7 @@ exports.handler = async event => {
 			statusCode: 400,
 			headers,
 			body: JSON.stringify({
-				status: err,
+				success: false,
 			}),
 		};
 	}
