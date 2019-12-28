@@ -8,6 +8,7 @@
 
 <script>
 	import { _ } from 'svelte-i18n';
+	import ky from 'ky';
 	import { onMount } from 'svelte';
 
 	import {
@@ -38,6 +39,14 @@
 			carType: '',
 		},
 		comment: '',
+	};
+
+	const submit = async () => {
+		const parsed = await constky
+			.post('/.netlify/functions/mail', { json: form })
+			.json();
+
+		console.log({ parsed });
 	};
 </script>
 
@@ -338,10 +347,8 @@
 		<p class="text-xl md:text-2xl mt-4">{$_('home.contact.p1')}</p>
 
 		<form
-			data-netlify="true"
 			name="contact"
-			method="POST"
-			action="/POST"
+			on:submit|preventDefault="{submit}"
 			class="mt-8 flex flex-col"
 		>
 			{#if step === 1}
