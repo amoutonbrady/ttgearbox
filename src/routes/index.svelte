@@ -75,7 +75,7 @@
 </script>
 
 <svelte:head>
-	<title>TT Gearbox</title>
+	<title>{$_('home.seo.title')}</title>
 	<meta name="description" content="{$_('home.seo.description')}" />
 
 	<!-- Facebook -->
@@ -556,12 +556,12 @@
 					class="hidden"
 				></button>
 			{:else}
-				<div class="flex justify-between">
+				<div class="flex flex-col md:flex-row justify-between mt-16">
 					<button
 						type="button"
 						on:click|preventDefault="{() => step--}"
 						class="px-8 py-2 uppercase tracking-wide font-bold
-						border border-gray-800 rounded inline-block mt-16
+						border border-gray-800 rounded inline-block
 						hover:bg-gray-800 hover:text-gray-100"
 						style="transition: all 300ms ease-in-out"
 						disabled="{loading}"
@@ -571,8 +571,8 @@
 					<button
 						type="submit"
 						class="px-8 py-2 uppercase tracking-wide font-bold
-						border border-gray-800 rounded inline-block mt-16
-						hover:bg-gray-800 hover:text-gray-100"
+						border border-gray-800 rounded inline-block
+						hover:bg-gray-800 hover:text-gray-100 mt-4 md:mt-0"
 						style="transition: all 300ms ease-in-out"
 						disabled="{loading}"
 					>

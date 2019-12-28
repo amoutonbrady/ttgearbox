@@ -16,12 +16,6 @@
 	};
 </script>
 
-<style>
-	select:invalid {
-		border-color: #f56565;
-	}
-</style>
-
 <div class="flex flex-col {className}">
 	{#if label}
 		<label for="{id}" class="cursor-pointer">{label}</label>
@@ -33,9 +27,16 @@
 		{type}
 		{name}
 		{required}
-		class="px-8 py-4 border border-gray-600 rounded text-gray-800 text-lg"
+		class="px-8 py-4 border border-gray-600 bg-white rounded text-gray-800
+		text-lg"
 		class:mt-2="{!!label}"
 	>
 		<slot />
 	</select>
 </div>
+
+<style>
+	select:invalid {
+		border-color: #f56565;
+	}
+</style>
