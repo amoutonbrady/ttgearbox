@@ -3768,6 +3768,11 @@ scroll-behavior-polyfill@^2.0.13:
   resolved "https://registry.yarnpkg.com/scroll-behavior-polyfill/-/scroll-behavior-polyfill-2.0.13.tgz#f6f4db9eecdb94d5744b85b653440602fcf3b24b"
   integrity sha512-X1AC6+k0++Y3XOT8Likr5Dh4XMmwvbTolr3Mp2g1jYPpOQ3++wff/JPfPEK6zqPCkZ88Ac0/OMRW/Uwh16U+HQ==
 
+scrollama@^2.1.4:
+  version "2.1.4"
+  resolved "https://registry.yarnpkg.com/scrollama/-/scrollama-2.1.4.tgz#712084258e5466904980b881c7d8cf498b323590"
+  integrity sha512-bVc0TsghalmkKfLFh2W50RIGE16rEifDA5D9wked7EgZU22pa6hxnw0MeA6usUd/L11qReqVHPUVQPIQ4t1y4g==
+
 "semver@2 || 3 || 4 || 5", semver@^5.3.0, semver@^5.4.1, semver@^5.5.0, semver@^5.5.1:
   version "5.7.1"
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.7.1.tgz#a954f931aeba508d307bbf069eff0c01c96116f7"

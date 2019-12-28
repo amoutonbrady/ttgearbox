@@ -1,10 +1,17 @@
 <script>
 	import { _ } from 'svelte-i18n';
+	import { ChevronDownIcon } from '@/icons';
 	export let title = '';
+	export let style = '';
+	export let column = 'right';
+	export let negative = false;
 </script>
 
 <article
-	class="flex flex-col bg-gray-100 shadow text-gray-900 rounded relative"
+	class="flex flex-col bg-gray-100 shadow text-gray-900 rounded relative {column}"
+	class:md:-mt-16="{negative}"
+	class:mt-10="{negative}"
+	{style}
 >
 	<header class="flex items-center">
 		<div
@@ -35,10 +42,33 @@
 		style="transition: all 300ms ease-in-out"
 	>
 		<span class="sr-only">{$_('home.services.link')}</span>
-		<svg class="fill-current h-8 w-8" viewBox="0 0 24 24">
-			<path
-				d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
-			></path>
-		</svg>
+		<ChevronDownIcon className="fill-current h-8 w-8" />
 	</a>
 </article>
+
+<style>
+	.left::before,
+	.right::before {
+		content: '';
+		position: absolute;
+		top: calc(50% - 1px);
+		height: 2px;
+		width: 3rem;
+		background: transparent;
+	}
+
+	.left::before {
+		left: 100%;
+	}
+
+	.right::before {
+		right: 100%;
+	}
+
+	@media (min-width: 768px) {
+		.left::before,
+		.right::before {
+			background: #718096;
+		}
+	}
+</style>

@@ -8,7 +8,8 @@
 
 <script>
 	import { _ } from 'svelte-i18n';
-	import { scroll } from '@/stores';
+	import { onMount } from 'svelte';
+
 	import {
 		ServiceCard,
 		FormInput,
@@ -16,6 +17,7 @@
 		FormTextArea,
 	} from '@/components';
 
+	let step = 1;
 	const form = {
 		firstname: '',
 		lastname: '',
@@ -75,7 +77,7 @@
 	overflow-hidden"
 	id="home"
 >
-	<div class="layer md:fixed top-0 left-0 w-full h-full">
+	<div class="md:fixed top-0 left-0 w-full h-full">
 		<picture>
 			<source srcset="/images/about-test.webp" type="image/webp" />
 			<source srcset="/images/about-test.jpg" type="image/jpeg" />
@@ -88,8 +90,8 @@
 		</picture>
 
 		<div
-			class="px-4 flex flex-col justify-center relative z-20 md:bg-red-100
-			md:w-1/2 md:h-full"
+			class="px-4 flex flex-col justify-center relative z-20
+			md:bg-gray-100 md:text-gray-800 md:w-1/2 md:h-full"
 		>
 			<div class="max-w-xl mx-auto my-12 py-12 md:p-0 md:-mt-12">
 				<h1
@@ -108,7 +110,7 @@
 
 				<div class="flex mt-16 ">
 					<a
-						href="#services"
+						href="#about"
 						class="px-8 py-3 uppercase tracking-wide font-bold
 						border-2 border-gray-100 md:border-gray-900 rounded
 						inline-block md:hover:bg-gray-900 hover:bg-gray-100
@@ -121,7 +123,7 @@
 						{$_('home.intro.cta1')}
 					</a>
 					<a
-						href="#services"
+						href="#contact"
 						class="px-8 py-3 uppercase tracking-wide font-bold
 						border-2 border-gray-900 rounded inline-block
 						hover:bg-gray-900 hover:text-gray-100
@@ -138,7 +140,7 @@
 </section>
 
 <section
-	class="layer min-h-screen bg-white relative text-gray-100 overflow-hidden"
+	class="min-h-screen bg-white relative text-gray-100 overflow-hidden"
 	id="about"
 >
 	<picture>
@@ -164,7 +166,12 @@
 
 			<p class="text-lg md:text-xl mt-4">
 				<span>{$_('home.about.p1_part1')}&nbsp;</span>
-				<abbr title="{$_('home.about.rhd_definition')}">RHD</abbr>
+				<abbr
+					style="cursor: help"
+					title="{$_('home.about.rhd_definition')}"
+				>
+					RHD
+				</abbr>
 				<span>{$_('home.about.p1_part2')}&nbsp;</span>
 			</p>
 			<p class="text-lg md:text-xl mt-4">{$_('home.about.p3')}</p>
@@ -185,29 +192,20 @@
 	</div>
 </section>
 
-<section
-	class="layer min-h-screen bg-gray-200 relative flex items-center
-	text-gray-100 overflow-hidden"
-	id="services"
->
-	<picture>
-		<source srcset="/images/services.webp" type="image/webp" />
-		<source srcset="/images/services.jpg" type="image/jpeg" />
-		<img
-			class="absolute object-cover h-full w-full bottom-0 left-0 z-10"
-			src="/images/services.jpg"
-			alt="{$_('home.services.altCover')}"
-		/>
-	</picture>
-	<div class="container mx-auto px-4 py-20 relative z-30">
-		<h2 class="text-5xl font-bold leading-tight font-display">
+<section class="bg-gray-200 relative z-30" id="services">
+	<div class="container mx-auto px-4 relative z-30">
+		<!-- <h2 class="text-5xl font-bold leading-tight font-display">
 			{$_('home.services.title')}
 		</h2>
 
-		<p class="text-xl md:text-2xl mt-4">{$_('home.services.subtitle')}</p>
+		<p class="text-xl md:text-2xl mt-4">{$_('home.services.subtitle')}</p> -->
 
-		<div class="service-grid mt-16">
-			<ServiceCard title="Recherche">
+		<div class="service-grid max-w-3xl py-16 mx-auto">
+			<ServiceCard
+				title="{$_('home.services.s1.title')}"
+				column="right"
+				style="grid-column-start: 2; grid-row-start: 1"
+			>
 				<svg
 					class="fill-current h-6 w-6"
 					viewBox="0 0 24 24"
@@ -228,9 +226,14 @@
 						15.5,19A2.5,2.5 0 0,0 18,16.5A2.5,2.5 0 0,0 15.5,14Z"
 					></path>
 				</svg>
-				{$_('home.services.s1')}
+				{$_('home.services.s1.text')}
 			</ServiceCard>
-			<ServiceCard title="Inspection">
+			<ServiceCard
+				title="{$_('home.services.s2.title')}"
+				column="left"
+				negative="{true}"
+				style="grid-column-start: 1; grid-row-start: 2"
+			>
 				<svg
 					class="fill-current h-6 w-6"
 					viewBox="0 0 24 24"
@@ -245,9 +248,14 @@
 						3M10 7V5H8V17H20V5H18V7H10Z"
 					></path>
 				</svg>
-				{$_('home.services.s2')}
+				{$_('home.services.s2.text')}
 			</ServiceCard>
-			<ServiceCard title="Importation">
+			<ServiceCard
+				title="{$_('home.services.s3.title')}"
+				column="right"
+				negative="{true}"
+				style="grid-column-start: 2; grid-row-start: 3"
+			>
 				<svg
 					class="fill-current h-6 w-6"
 					viewBox="0 0 24 24"
@@ -264,9 +272,14 @@
 						0,0 21,20V12L18.92,6Z"
 					></path>
 				</svg>
-				{$_('home.services.s3')}
+				{$_('home.services.s3.text')}
 			</ServiceCard>
-			<ServiceCard title="Immatriculation">
+			<ServiceCard
+				title="{$_('home.services.s4.title')}"
+				column="left"
+				negative="{true}"
+				style="grid-column-start: 1; grid-row-start: 4"
+			>
 				<svg
 					class="fill-current h-6 w-6"
 					viewBox="0 0 24 24"
@@ -287,9 +300,14 @@
 						9,10.1A2.1,2.1 0 0,0 11.1,8A2.1,2.1 0 0,0 9,5.9Z"
 					></path>
 				</svg>
-				{$_('home.services.s4')}
+				{$_('home.services.s4.text')}
 			</ServiceCard>
-			<ServiceCard title="Vendre">
+			<ServiceCard
+				title="{$_('home.services.s5.title')}"
+				column="right"
+				negative="{true}"
+				style="grid-column-start: 2; grid-row-start: 5"
+			>
 				<svg
 					class="fill-current h-6 w-6"
 					viewBox="0 0 24 24"
@@ -304,183 +322,233 @@
 						12V11H13V12A2 2 0 0 1 11 14H9A2 2 0 0 1 7 12V9Z"
 					></path>
 				</svg>
-				{$_('home.services.s5')}
+				{$_('home.services.s5.text')}
 			</ServiceCard>
 
 		</div>
 	</div>
 </section>
 
-<section class="relative z-20 bg-gray-100" id="contact">
-	<div class="container mx-auto px-4 py-20 ">
-		<h2
-			class="text-5xl font-bold leading-tight font-display md:text-center"
-		>
-			Nous contacter
+<section class="relative z-20 bg-gray-100 text-gray-800" id="contact">
+	<div class="max-w-2xl mx-auto px-4 py-20 ">
+		<h2 class="text-5xl font-bold leading-tight font-display">
+			{$_('home.contact.title')}
 		</h2>
 
-		<p class="text-xl md:text-2xl mt-4 max-w-2xl mx-auto">
-			Vous hésitez à faire le grand saut ? N'hésitez pas à nous contacter
-			pour un accompagnement ou un conseil personnalisé durant
-			l’importation de votre nouveau véhicule provenant d’Angleterre. Un
-			devis vous sera envoyé par mail à l’adresse indiqué dans le
-			formulaire ci dessous.
-		</p>
+		<p class="text-xl md:text-2xl mt-4">{$_('home.contact.p1')}</p>
 
 		<form
 			data-netlify="true"
 			name="contact"
 			method="POST"
 			action="/POST"
-			class="max-w-2xl mx-auto mt-8"
+			class="mt-8 flex flex-col"
 		>
-			<fieldset class="mt-10">
-				<legend class="font-bold uppercase text-sm tracking-wide">
-					Informations sur le véhicule
-				</legend>
-				<div class="form-col-2 mt-4">
-					<FormInput
-						bind:value="{form.car.brand}"
-						label="Marque du véhicule"
-					/>
-					<FormInput
-						bind:value="{form.car.model}"
-						label="Modèle du véhicule"
-					/>
-					<FormInput
-						bind:value="{form.car.maxKm}"
-						label="Kilométrage maximum exigé"
-					/>
+			{#if step === 1}
+				<fieldset class="mt-10">
+					<legend class="font-bold uppercase text-sm tracking-wide">
+						{$_('home.contact.form.title1')}
+					</legend>
+					<div class="form-col-2 mt-4">
+						<FormInput
+							bind:value="{form.car.brand}"
+							name="brand"
+							label="{$_('home.contact.form.brand')}"
+						/>
+						<FormInput
+							bind:value="{form.car.model}"
+							name="model"
+							label="{$_('home.contact.form.model')}"
+						/>
+						<FormInput
+							bind:value="{form.car.maxKm}"
+							name="maxKm"
+							label="{$_('home.contact.form.maxKm')}"
+						/>
 
-					<FormSelect
-						bind:value="{form.car.motorization}"
-						label="Motorisation :"
+						<FormSelect
+							bind:value="{form.car.motorization}"
+							name="motorization"
+							label="{$_('home.contact.form.motorization.label')}"
+						>
+							<option>
+								{$_('home.contact.form.motorization.opt1')}
+							</option>
+							<option>
+								{$_('home.contact.form.motorization.opt2')}
+							</option>
+							<option>
+								{$_('home.contact.form.motorization.opt3')}
+							</option>
+							<option>
+								{$_('home.contact.form.motorization.opt4')}
+							</option>
+							<option>
+								{$_('home.contact.form.motorization.opt5')}
+							</option>
+						</FormSelect>
+
+						<FormInput
+							bind:value="{form.car.doors}"
+							name="doors"
+							type="number"
+							label="{$_('home.contact.form.doors')}"
+						/>
+
+						<FormSelect
+							bind:value="{form.car.carType}"
+							name="carType"
+							label="{$_('home.contact.form.carType.label')}"
+						>
+							<option>
+								{$_('home.contact.form.carType.opt1')}
+							</option>
+							<option>
+								{$_('home.contact.form.carType.opt2')}
+							</option>
+						</FormSelect>
+
+						<FormTextArea
+							className="span-2"
+							bind:value="{form.comment}"
+							name="comment"
+							label="{$_('home.contact.form.comment')}"
+						/>
+					</div>
+				</fieldset>
+			{:else}
+				<fieldset class="mt-8">
+					<legend class="font-bold uppercase text-sm tracking-wide">
+						{$_('home.contact.form.title2')}
+					</legend>
+					<div class="form-col-2 mt-4">
+						<FormInput
+							bind:value="{form.firstname}"
+							label="{$_('home.contact.form.firstname')}"
+							name="firstname"
+							required="{true}"
+						/>
+						<FormInput
+							bind:value="{form.lastname}"
+							label="{$_('home.contact.form.lastname')}"
+							name="lastname"
+							required="{true}"
+						/>
+						<FormInput
+							bind:value="{form.email}"
+							type="email"
+							label="{$_('home.contact.form.email')}"
+							name="email"
+							required="{true}"
+						/>
+						<FormInput
+							bind:value="{form.phone}"
+							type="tel"
+							name="phone"
+							label="{$_('home.contact.form.phone')}"
+							required="{true}"
+						/>
+						<FormInput
+							bind:value="{form.address.line1}"
+							label="{$_('home.contact.form.address')}"
+							name="address"
+							required="{true}"
+						/>
+						<FormInput
+							bind:value="{form.address.zip}"
+							label="{$_('home.contact.form.zip')}"
+							name="zip"
+							required="{true}"
+						/>
+
+						<FormSelect
+							bind:value="{form.motive}"
+							label="{$_('home.contact.form.motive.label')}"
+							name="motive"
+							required="{true}"
+						>
+							<option>
+								{$_('home.contact.form.motive.opt1')}
+							</option>
+							<option>
+								{$_('home.contact.form.motive.opt2')}
+							</option>
+							<option>
+								{$_('home.contact.form.motive.opt3')}
+							</option>
+							<option>
+								{$_('home.contact.form.motive.opt4')}
+							</option>
+							<option>
+								{$_('home.contact.form.motive.opt5')}
+							</option>
+						</FormSelect>
+					</div>
+				</fieldset>
+			{/if}
+
+			{#if step === 1}
+				<button
+					type="button"
+					on:click|preventDefault="{() => step++}"
+					class="px-8 py-2 uppercase tracking-wide font-bold border
+					border-gray-800 rounded inline-block mt-16 hover:bg-gray-800
+					hover:text-gray-100 ml-auto"
+					style="transition: all 300ms ease-in-out"
+				>
+					{$_('home.contact.form.next')}
+				</button>
+			{:else}
+				<div class="flex justify-between">
+					<button
+						type="button"
+						on:click|preventDefault="{() => step--}"
+						class="px-8 py-2 uppercase tracking-wide font-bold
+						border border-gray-800 rounded inline-block mt-16
+						hover:bg-gray-800 hover:text-gray-100"
+						style="transition: all 300ms ease-in-out"
 					>
-						<option>Essence</option>
-						<option>Diesel</option>
-						<option>Electrique</option>
-						<option>Hybride</option>
-						<option>Autre</option>
-					</FormSelect>
-
-					<FormInput
-						bind:value="{form.car.doors}"
-						type="number"
-						label="Nombre de porte"
-					/>
-
-					<FormSelect
-						bind:value="{form.car.carType}"
-						label="Boite de vitesse :"
+						{$_('home.contact.form.previous')}
+					</button>
+					<button
+						type="submit"
+						class="px-8 py-2 uppercase tracking-wide font-bold
+						border border-gray-800 rounded inline-block mt-16
+						hover:bg-gray-800 hover:text-gray-100"
+						style="transition: all 300ms ease-in-out"
 					>
-						<option>Automatique</option>
-						<option>Manuel</option>
-					</FormSelect>
+						{$_('home.contact.form.submit')}
+					</button>
 				</div>
-			</fieldset>
-
-			<FormTextArea
-				className="mt-4"
-				bind:value="{form.comment}"
-				name="comment"
-				label="Commentaire"
-			/>
-
-			<fieldset class="mt-8">
-				<legend class="font-bold uppercase text-sm tracking-wide">
-					Informations personnelles
-				</legend>
-				<div class="form-col-2 mt-4">
-					<FormInput
-						bind:value="{form.firstname}"
-						label="Nom"
-						name="firstname"
-						required="{true}"
-					/>
-					<FormInput
-						bind:value="{form.lastname}"
-						label="Prénom"
-						name="lastname"
-						required="{true}"
-					/>
-					<FormInput
-						bind:value="{form.email}"
-						type="email"
-						label="Email"
-						name="email"
-						required="{true}"
-					/>
-					<FormInput
-						bind:value="{form.phone}"
-						type="tel"
-						name="phone"
-						label="Téléphone"
-						required="{true}"
-					/>
-					<FormInput
-						bind:value="{form.address.line1}"
-						label="Adresse"
-						name="address"
-						required="{true}"
-					/>
-					<FormInput
-						bind:value="{form.address.zip}"
-						label="Code Postal"
-						name="zip"
-						required="{true}"
-					/>
-
-					<FormSelect
-						bind:value="{form.motive}"
-						label="Votre demande concerne :"
-						name="motive"
-						required="{true}"
-					>
-						<option>Recherche</option>
-						<option>Import</option>
-						<option>Vente</option>
-						<option>Aide</option>
-						<option>Inspection</option>
-					</FormSelect>
-				</div>
-			</fieldset>
-
-			<button
-				type="submit"
-				class="px-8 py-2 uppercase tracking-wide font-bold border
-				border-gray-800 rounded inline-block mt-16 hover:bg-gray-800
-				hover:text-gray-100"
-				style="transition: all 300ms ease-in-out"
-			>
-				Envoyer ma demande
-			</button>
+			{/if}
 		</form>
 	</div>
 </section>
 
 <style>
-	.layer::before {
-		content: '';
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		/* background: rgba(0, 0, 0, 0.5); */
-		/* background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0)); */
-		z-index: 20;
+	.service-grid {
+		display: flex;
+		flex-flow: column nowrap;
 	}
 
-	.service-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
-		grid-gap: 0.75rem;
+	.service-grid::after {
+		content: '';
+		position: absolute;
+		height: 100%;
+		width: 2px;
+		left: calc(50% - 1px);
+		top: 0;
+		background: transparent;
 	}
 
 	.form-col-2 {
 		display: grid;
 		grid-template-columns: 1fr;
 		grid-gap: 1.5rem;
+	}
+
+	:global(.span-2) {
+		grid-column: span 1;
 	}
 
 	.blur {
@@ -492,9 +560,23 @@
 	}
 
 	@media (min-width: 768px) {
+		.service-grid {
+			display: grid;
+			grid-template-columns: repeat(2, minmax(275px, 1fr));
+			grid-column-gap: 6rem;
+		}
+
+		.service-grid::after {
+			background: #718096;
+		}
+
 		.form-col-2 {
 			grid-template-columns: repeat(2, 1fr);
 			grid-gap: 0.75rem;
+		}
+
+		:global(.span-2) {
+			grid-column: span 2;
 		}
 
 		.about {

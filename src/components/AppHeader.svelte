@@ -29,7 +29,7 @@
 
 	<nav
 		class="absolute md:relative left-0 z-10 p-4 w-full bg-gray-100 border-t
-		border-gray-300 shadow"
+		border-gray-300"
 		class:open
 	>
 		<ul
@@ -76,7 +76,6 @@
 		top: 100%;
 		transform: translateY(-100%);
 		transition: transform 300ms ease-in-out;
-		max-width: 100%;
 	}
 
 	nav.open {
@@ -86,7 +85,6 @@
 	@media (min-width: 768px) {
 		nav {
 			transform: translateY(0);
-			max-width: 50%;
 		}
 	}
 </style>
