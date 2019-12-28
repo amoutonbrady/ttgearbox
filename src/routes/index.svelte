@@ -8,7 +8,6 @@
 
 <script>
 	import { _ } from 'svelte-i18n';
-	import ky from 'ky';
 	import { onMount } from 'svelte';
 
 	import {
@@ -42,7 +41,8 @@
 	};
 
 	const submit = async () => {
-		const parsed = await constky
+		const ky = (await import('ky')).default;
+		const parsed = await ky
 			.post('/.netlify/functions/mail', { json: form })
 			.json();
 
