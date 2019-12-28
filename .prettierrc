@@ -6,5 +6,7 @@
 	"singleQuote": true,
 	"htmlWhitespaceSensitivity": "ignore",
 	"svelteStrictMode": true,
-	"svelteBracketNewLine": true
+	"svelteBracketNewLine": true,
+	"svelteSortOrder": "scripts-markup-styles",
+	"pluginSearchDirs": ["."]
 }

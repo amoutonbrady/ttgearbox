@@ -1,9 +1,20 @@
+<script context="module">
+	import { register, waitLocale } from 'svelte-i18n';
+
+	register('fr', () => import('@/langs/fr/home'));
+
+	export const preload = async () => waitLocale();
+</script>
+
 <script>
-	import ServiceCard from '../components/ServiceCard.svelte';
-	import FormInput from '../components/FormInput.svelte';
-	import FormSelect from '../components/FormSelect.svelte';
-	import FormTextArea from '../components/FormTextArea.svelte';
-	import { scroll } from '../stores/scroll.js';
+	import { _ } from 'svelte-i18n';
+	import { scroll } from '@/stores';
+	import {
+		ServiceCard,
+		FormInput,
+		FormSelect,
+		FormTextArea,
+	} from '@/components';
 
 	const form = {
 		firstname: '',
@@ -28,68 +39,21 @@
 	};
 </script>
 
-<style>
-	.layer::before {
-		content: '';
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		background: rgba(0, 0, 0, 0.65);
-		/* background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0)); */
-		z-index: 20;
-	}
-
-	.service-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
-		grid-gap: 0.75rem;
-	}
-
-	.form-col-2 {
-		display: grid;
-		grid-template-columns: 1fr;
-		grid-gap: 1.5rem;
-	}
-
-	@media (min-width: 768px) {
-		.form-col-2 {
-			grid-template-columns: repeat(2, 1fr);
-			grid-gap: 0.75rem;
-		}
-	}
-</style>
-
 <svelte:head>
 	<title>TT Gearbox</title>
-	<meta
-		name="description"
-		content="Startup basée à Paris spécialisé dans l’accompagnement
-		d’importation de véhicule RHD provenant du Royaume-uni."
-	/>
+	<meta name="description" content="{$_('home.seo.description')}" />
 
 	<!-- Facebook -->
 	<meta property="og:url" content="https://ttgearbox.com" />
 	<meta property="og:type" content="website" />
-	<meta property="og:title" content="TT Gearbox - Importation véhicule RHD" />
+	<meta property="og:title" content="{$_('home.seo.title')}" />
 	<meta
 		property="og:image"
 		content="https://ttgearbox.com/images/about.jpg"
 	/>
-	<meta
-		property="og:image:alt"
-		content="A london street with an english bus on the side"
-	/>
-	<meta
-		property="og:description"
-		content="Startup basée à Paris spécialisé dans l’accompagnement
-		d’importation de véhicule RHD provenant du Royaume-uni."
-	/>
-	<meta
-		property="og:site_name"
-		content="TT Gearbox - Importation véhicule RHD"
-	/>
+	<meta property="og:image:alt" content="{$_('home.seo.altImg')}" />
+	<meta property="og:description" content="{$_('home.seo.description')}." />
+	<meta property="og:site_name" content="{$_('home.seo.title')}" />
 	<meta property="og:locale" content="fr_FR" />
 
 	<!-- Twitter -->
@@ -97,131 +61,125 @@
 	<!-- <meta name="twitter:site" content="@site_account"> -->
 	<meta name="twitter:creator" content="@wbsdgcjfhd" />
 	<meta name="twitter:url" content="https://ttgearbox.com" />
-	<meta
-		name="twitter:title"
-		content="TT Gearbox - Importation véhicule RHD"
-	/>
-	<meta
-		name="twitter:description"
-		content="Startup basée à Paris spécialisé dans l’accompagnement
-		d’importation de véhicule RHD provenant du Royaume-uni."
-	/>
+	<meta name="twitter:title" content="{$_('home.seo.title')}" />
+	<meta name="twitter:description" content="{$_('home.seo.description')}." />
 	<meta
 		name="twitter:image"
 		content="https://ttgearbox.com/images/about.jpg"
 	/>
-	<meta
-		name="twitter:image:alt"
-		content="A london street with an english bus on the side"
-	/>
+	<meta name="twitter:image:alt" content="{$_('home.seo.altImg')}" />
 </svelte:head>
 
 <section
-	class="min-h-screen bg-gray-200 relative text-gray-100 overflow-hidden"
+	class="md:min-h-screen bg-gray-900 relative text-gray-100 md:text-gray-800
+	overflow-hidden"
 	id="home"
 >
-	<div
-		class="layer fixed top-0 left-0 w-full h-full z-10 flex items-center
-		justify-center"
-	>
+	<div class="layer md:fixed top-0 left-0 w-full h-full">
 		<picture>
-			<source srcset="/images/home.webp" type="image/webp" />
-			<source srcset="/images/home.jpg" type="image/jpeg" />
+			<source srcset="/images/about-test.webp" type="image/webp" />
+			<source srcset="/images/about-test.jpg" type="image/jpeg" />
 			<img
-				class="absolute object-cover h-full w-full bottom-0 left-0"
-				src="/images/home.jpg"
-				alt="Home Background Cover"
+				class="blur absolute object-cover object-right-bottom h-full
+				w-full bottom-0 left-0"
+				src="/images/about-test.jpg"
+				alt="{$_('home.intro.altCover')}"
 			/>
 		</picture>
 
 		<div
-			class="mx-auto mt-32 px-4 flex flex-col items-center relative z-30"
+			class="px-4 flex flex-col justify-center relative z-20 md:bg-red-100
+			md:w-1/2 md:h-full"
 		>
-			<h1 class="sr-only">Page d'accueil de TT Gearbox</h1>
-			<p class="text-2xl md:text-3xl font-semibold text-center">
-				<span>
-					Vous avez pour objectif d'acquerir un nouveau véhicule à un
-					prix raisonable ?
-				</span>
-				<br />
-				<span>
-					Ne cherchez plus ! Grâce à TT Gearbox votre souhait se
-					réalisera.
-				</span>
-			</p>
+			<div class="max-w-xl mx-auto my-12 py-12 md:p-0 md:-mt-12">
+				<h1
+					class="text-4xl md:text-6xl uppercase tracking-wide
+					font-thin"
+				>
+					{$_('title')}
+				</h1>
 
-			<p class="text-xl mt-10 text-center md:text-2xl md:mt-4">
-				Importer votre futur véhicule du Royaume-Uni
-			</p>
+				<p class="text-xl md:text-2xl mt-4 max-w-xl mx-auto">
+					{$_('home.intro.p1')}
+				</p>
+				<p class="text-xl md:text-2xl mt-4 max-w-xl mx-auto">
+					{$_('home.intro.p2')}
+				</p>
 
-			<a
-				href="#services"
-				class="px-8 py-2 uppercase tracking-wide font-bold border
-				border-gray-100 rounded inline-block mt-16 hover:bg-gray-100
-				hover:text-gray-900 focus:border-blue-300 focus:bg-gray-100
-				focus:text-gray-900"
-				style="transition: all 300ms ease-in-out"
-			>
-				Découvrir
-			</a>
+				<div class="flex mt-16 ">
+					<a
+						href="#services"
+						class="px-8 py-3 uppercase tracking-wide font-bold
+						border-2 border-gray-100 md:border-gray-900 rounded
+						inline-block md:hover:bg-gray-900 hover:bg-gray-100
+						md:hover:text-gray-100 hover:text-gray-900
+						focus:border-blue-300 md:focus:bg-gray-900
+						focus:bg-gray-100 md:focus:text-gray-100
+						focus:text-gray-900"
+						style="transition: all 300ms ease-in-out"
+					>
+						{$_('home.intro.cta1')}
+					</a>
+					<a
+						href="#services"
+						class="px-8 py-3 uppercase tracking-wide font-bold
+						border-2 border-gray-900 rounded inline-block
+						hover:bg-gray-900 hover:text-gray-100
+						focus:border-blue-300 focus:bg-gray-900
+						focus:text-gray-100 ml-4 hidden lg:block"
+						style="transition: all 300ms ease-in-out"
+					>
+						{$_('home.intro.cta2')}
+					</a>
+				</div>
+			</div>
 		</div>
-
 	</div>
 </section>
 
 <section
-	class="layer min-h-screen bg-gray-200 relative flex items-center
-	text-gray-100 overflow-hidden"
+	class="layer min-h-screen bg-white relative text-gray-100 overflow-hidden"
 	id="about"
 >
 	<picture>
-		<source srcset="/images/about.webp" type="image/webp" />
-		<source srcset="/images/about.jpg" type="image/jpeg" />
+		<source srcset="/images/home-test.webp" type="image/webp" />
+		<source srcset="/images/home-test.jpg" type="image/jpeg" />
 		<img
-			class="absolute object-cover h-full w-full bottom-0 left-0 z-10"
-			src="/images/about.jpg"
-			alt="About Background Cover"
+			class="about absolute object-cover object-bottom w-full md:w-1/2
+			bottom-0 left-0 z-10"
+			src="/images/home-test.jpg"
+			alt="{$_('home.about.altCover')}"
 		/>
 	</picture>
-	<div class="container mx-auto px-4 py-20">
-		<div class="max-w-3xl relative z-30">
-			<h2 class="text-5xl font-bold leading-tight font-display">
-				TT Gearbox
+	<div class="container flex justify-end mx-auto px-4">
+		<div
+			class="md:max-w-2xl relative z-30 bg-white text-gray-800 p-6 pt-4
+			rounded-sm md:mr-6 md:mt-20 mt-6"
+		>
+			<h2
+				class="text-3xl md:text-5xl font-bold leading-tight font-display"
+			>
+				{$_('home.about.title')}
 			</h2>
 
-			<p class="text-xl md:text-2xl mt-4">
-				Startup basée à Paris spécialisé dans l’accompagnement
-				d’importation de véhicule RHD provenant du Royaume-uni.
-				<br />
-				Qu’est-ce qu’une RHD ? Ce terme signifie en anglais Right Hand
-				Drive (Volant à droite), il s’agit donc d’un véhicule ayant le
-				volant du côté droit.
+			<p class="text-lg md:text-xl mt-4">
+				<span>{$_('home.about.p1_part1')}&nbsp;</span>
+				<abbr title="{$_('home.about.rhd_definition')}">RHD</abbr>
+				<span>{$_('home.about.p1_part2')}&nbsp;</span>
 			</p>
-			<p class="text-xl md:text-2xl mt-4">
-				Nous avons pour but de permettre à tous de pouvoir acquérir un
-				véhicule à moindre coût !
-				<br />
-				Notre objectif est de pouvoir faire en sorte que le véhicule de
-				vos rêves se retrouve dans votre garage.
-			</p>
+			<p class="text-lg md:text-xl mt-4">{$_('home.about.p3')}</p>
 
-			<p class="text-xl md:text-2xl mt-4">
-				Faire appel à TT Gearbox, c’est faire appel à une équipe
-				sérieuse et à votre écoute.
-				<br />
-				De plus, nous nous adaptons à nos clients et nous sommes là pour
-				vous accompagner.
-			</p>
+			<p class="text-lg md:text-xl mt-4">{$_('home.about.p4')}</p>
 
 			<a
 				href="#services"
-				class="px-8 py-2 uppercase tracking-wide font-bold border
-				border-gray-100 rounded inline-block mt-16 hover:bg-gray-100
-				hover:text-gray-900 focus:border-blue-300 focus:bg-gray-100
-				focus:text-gray-900"
+				class="px-8 py-3 uppercase tracking-wide font-bold border-2
+				border-gray-900 rounded inline-block mt-12 text-gray-900
+				hover:bg-gray-900 hover:text-gray-100 focus:border-blue-300
+				focus:bg-gray-900 focus:text-gray-100"
 				style="transition: all 300ms ease-in-out"
 			>
-				Plus d'informations
+				{$_('home.about.cta')}
 			</a>
 		</div>
 	</div>
@@ -238,17 +196,15 @@
 		<img
 			class="absolute object-cover h-full w-full bottom-0 left-0 z-10"
 			src="/images/services.jpg"
-			alt="Services Background Cover"
+			alt="{$_('home.services.altCover')}"
 		/>
 	</picture>
 	<div class="container mx-auto px-4 py-20 relative z-30">
 		<h2 class="text-5xl font-bold leading-tight font-display">
-			Nos services
+			{$_('home.services.title')}
 		</h2>
 
-		<p class="text-xl md:text-2xl mt-4">
-			Nous allons vous faire gagner du temps
-		</p>
+		<p class="text-xl md:text-2xl mt-4">{$_('home.services.subtitle')}</p>
 
 		<div class="service-grid mt-16">
 			<ServiceCard title="Recherche">
@@ -272,10 +228,7 @@
 						15.5,19A2.5,2.5 0 0,0 18,16.5A2.5,2.5 0 0,0 15.5,14Z"
 					></path>
 				</svg>
-				Présent à Paris ainsi qu’au Royaume-Uni, nous échangeons avec
-				nos différents partenaires sur place pour vous aider à trouver
-				le véhicule qui correspond à vos critères et surtout à votre
-				budget.
+				{$_('home.services.s1')}
 			</ServiceCard>
 			<ServiceCard title="Inspection">
 				<svg
@@ -292,9 +245,7 @@
 						3M10 7V5H8V17H20V5H18V7H10Z"
 					></path>
 				</svg>
-				Vous avez trouvé un véhicule qui vous convient ? Vous souhaitez
-				être sur avant de l’acquérir vous-même? Aucun soucis, notre
-				équipe se charge d’inspecter le véhicule pour vous.
+				{$_('home.services.s2')}
 			</ServiceCard>
 			<ServiceCard title="Importation">
 				<svg
@@ -313,10 +264,7 @@
 						0,0 21,20V12L18.92,6Z"
 					></path>
 				</svg>
-				Votre choix est fait ? Tout d’abord, bravo ! Maintenant, nous
-				nous chargeons de rapatrier votre véhicule jusqu’à votre
-				domicile en moins de 72h* avec les documents nécessaires à son
-				immatriculation en France.
+				{$_('home.services.s3')}
 			</ServiceCard>
 			<ServiceCard title="Immatriculation">
 				<svg
@@ -339,10 +287,7 @@
 						9,10.1A2.1,2.1 0 0,0 11.1,8A2.1,2.1 0 0,0 9,5.9Z"
 					></path>
 				</svg>
-				Votre nouvelle voiture est enfin chez vous, félicitations ! Vous
-				désirez être aidé sur les démarches administratives à faire pour
-				l’immatriculer en France ? Aucun soucis, on s’en occupe pour
-				vous.
+				{$_('home.services.s4')}
 			</ServiceCard>
 			<ServiceCard title="Vendre">
 				<svg
@@ -359,10 +304,7 @@
 						12V11H13V12A2 2 0 0 1 11 14H9A2 2 0 0 1 7 12V9Z"
 					></path>
 				</svg>
-				Quoi de mieux que de vendre son RHD à une personne qui en
-				cherche une ? Grâce à notre site 100% RHD, vous pouvez céder
-				votre ancienne RHD entre particulier et cela de manière
-				totalement GRATUITE !
+				{$_('home.services.s5')}
 			</ServiceCard>
 
 		</div>
@@ -515,3 +457,52 @@
 		</form>
 	</div>
 </section>
+
+<style>
+	.layer::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		/* background: rgba(0, 0, 0, 0.5); */
+		/* background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0)); */
+		z-index: 20;
+	}
+
+	.service-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
+		grid-gap: 0.75rem;
+	}
+
+	.form-col-2 {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-gap: 1.5rem;
+	}
+
+	.blur {
+		filter: blur(30px);
+	}
+
+	.about {
+		height: 50%;
+	}
+
+	@media (min-width: 768px) {
+		.form-col-2 {
+			grid-template-columns: repeat(2, 1fr);
+			grid-gap: 0.75rem;
+		}
+
+		.about {
+			height: 75%;
+		}
+
+		.blur {
+			filter: blur(0);
+		}
+	}
+</style>

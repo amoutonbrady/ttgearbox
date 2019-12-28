@@ -1,4 +1,5 @@
 <script>
+	import { _ } from 'svelte-i18n';
 	export let title = '';
 </script>
 
@@ -33,6 +34,7 @@
 		focus:bg-red-500 focus:text-gray-100"
 		style="transition: all 300ms ease-in-out"
 	>
+		<span class="sr-only">{$_('home.services.link')}</span>
 		<svg class="fill-current h-8 w-8" viewBox="0 0 24 24">
 			<path
 				d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"

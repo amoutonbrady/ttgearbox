@@ -1,4 +1,5 @@
 import * as sapper from '@sapper/app';
+import './i18n.js';
 
 // scroll behavior polyfill
 (async () => {

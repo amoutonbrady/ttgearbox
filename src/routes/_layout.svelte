@@ -1,6 +1,14 @@
+<script context="module">
+	import { register, waitLocale } from 'svelte-i18n';
+
+	register('fr', () => import('@/langs/fr/common'));
+
+	export const preload = async () => waitLocale();
+</script>
+
 <script>
-	import { scroll } from '../stores/scroll.js';
-	import AppHeader from '../components/AppHeader.svelte';
+	import { scroll } from '@/stores/scroll';
+	import { AppHeader } from '@/components';
 
 	const currentYear = new Date().getFullYear();
 </script>
