@@ -22,7 +22,7 @@ exports.handler = async event => {
 	const data = JSON.parse(event.body);
 	console.log(data);
 
-	if (!data.name || !data.price) {
+	if (!data.title || !data.price) {
 		console.error('Required information is missing.');
 
 		return {
@@ -41,7 +41,7 @@ exports.handler = async event => {
 			payment_method_types: ['card'],
 			line_items: [
 				{
-					name: data.name,
+					name: data.title,
 					description: data.description || '',
 					amount: data.price,
 					currency: 'eur',
