@@ -43,7 +43,7 @@ exports.handler = async event => {
 				{
 					name: data.title,
 					description: 'Guide TTGearbox',
-					amount: data.price,
+					amount: Math.ceil(data.price * 100),
 					currency: 'eur',
 					quantity: 1,
 				},
