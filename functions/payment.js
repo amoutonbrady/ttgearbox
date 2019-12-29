@@ -42,7 +42,7 @@ exports.handler = async event => {
 			line_items: [
 				{
 					name: data.title,
-					description: data.description || '',
+					description: 'Guide TTGearbox',
 					amount: data.price,
 					currency: 'eur',
 					quantity: 1,
