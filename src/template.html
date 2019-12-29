@@ -1,62 +1,65 @@
 <!DOCTYPE html>
 <html style="scroll-behavior: smooth;" lang="fr">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+		<meta name="theme-color" content="#333333" />
 
-<head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width,initial-scale=1.0" />
-	<meta name="theme-color" content="#333333" />
+		%sapper.base%
 
-	%sapper.base%
+		<link
+			href="https://fonts.googleapis.com/css?family=Cabin|Roboto+Condensed:700&display=swap"
+			rel="stylesheet"
+		/>
 
-	<link href="https://fonts.googleapis.com/css?family=Cabin|Roboto+Condensed:700&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="index.css" />
+		<link rel="manifest" href="site.webmanifest" />
 
-	<link rel="stylesheet" href="index.css" />
-	<link rel="manifest" href="site.webmanifest" />
+		<link rel="icon" type="image/png" href="favicon.png" />
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+		<link rel="apple-touch-icon" href="apple-touch-icon.png" />
+		<link rel="apple-touch-startup-image" href="apple-touch-icon.png" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="#333333" />
 
-	<link rel="icon" type="image/png" href="favicon.png" />
-	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-	<link rel="apple-touch-icon" href="apple-touch-icon.png">
-	<link rel="apple-touch-startup-image" href="apple-touch-icon.png">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="#333333">
+		<meta name="robots" content="index,follow" />
+		<meta name="generator" content="sapper" />
 
-	<meta name="robots" content="index,follow">
-	<meta name="generator" content="sapper">
+		<link rel="author" href="humans.txt" />
 
-	<link rel="author" href="humans.txt">
+		<link rel="me" href="mailto:contact@ttgearbox.com" />
 
-	<link rel="me" href="mailto:contact@ttgearbox.com">
-
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-154654511-1"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag() { dataLayer.push(arguments); }
-		gtag('js', new Date());
-
-		gtag('config', 'UA-154654511-1');
-	</script>
-
-	<!-- Sapper generates a <style> tag containing critical CSS
+		<!-- Sapper generates a <style> tag containing critical CSS
 	     for the current page. CSS for the rest of the app is
 	     lazily loaded when it precaches secondary pages -->
-	%sapper.styles%
+		%sapper.styles%
 
-	<!-- This contains the contents of the <svelte:head> component, if
+		<!-- This contains the contents of the <svelte:head> component, if
 	     the current page has one -->
-	%sapper.head%
-</head>
+		%sapper.head%
+	</head>
 
-<body class="bg-gray-100 font-body antialiased">
-	<!-- The application will be rendered inside this element,
+	<body class="bg-gray-100 font-body antialiased">
+		<!-- The application will be rendered inside this element,
 	     because `src/client.js` references it -->
-	<div id="root">%sapper.html%</div>
+		<div id="root">%sapper.html%</div>
 
-	<!-- Sapper creates a <script> tag containing `src/client.js`
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script src="https://www.googletagmanager.com/gtag/js?id=UA-154654511-1"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag('js', new Date());
+
+			gtag('config', 'UA-154654511-1');
+		</script>
+		<script src="https://js.stripe.com/v3/"></script>
+		<!-- Sapper creates a <script> tag containing `src/client.js`
 	     and anything else it needs to hydrate the app and
 	     initialise the router -->
-	%sapper.scripts%
-</body>
-
+		%sapper.scripts%
+	</body>
 </html>

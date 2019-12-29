@@ -12,7 +12,7 @@
 </script>
 
 <div
-	class="rounded bg-white shadow px-4 py-3 flex flex-col max-w-sm {primary ? `border-2 border-${color}-300` : ''}
+	class="rounded bg-white shadow px-4 py-3 flex flex-col max-w-sm border-2 {primary && color === 'green' ? 'border-green-300' : primary && color === 'red' ? 'border-red-300' : primary && color === 'blue' ? 'border-blue-300' : primary && color === 'purple' ? 'border-purple-300' : 'border-transparent'}
 	{className}"
 >
 	<p
@@ -27,8 +27,9 @@
 
 	<button
 		type="button"
-		class="mt-auto uppercase px-4 py-3 font-bold leading-tight bg-{color}-300
-		text-{color}-900 text-center rounded shadow hover:shadow-md"
+		class="mt-auto uppercase px-4 py-3 font-bold leading-tight {color === 'green' ? 'bg-green-300' : color === 'red' ? 'bg-red-300' : color === 'blue' ? 'bg-blue-300' : color === 'purple' ? 'bg-purple-300' : 'bg-transparent'}
+		{color === 'green' ? 'text-green-900' : color === 'red' ? 'text-red-900' : color === 'blue' ? 'text-blue-900' : color === 'purple' ? 'text-purple-900' : 'text-gray-900'}
+		text-center rounded shadow hover:shadow-md"
 		on:click="{() => dispatch('submit', { price, title })}"
 	>
 		{button}
