@@ -198,14 +198,19 @@
 			</h2>
 
 			<p class="text-lg md:text-xl mt-4">
-				<span>{$_('home.about.p1_part1')}&nbsp;</span>
+				<span>{$_('home.about.p1_part1')}</span>
 				<abbr
 					style="cursor: help"
 					title="{$_('home.about.rhd_definition')}"
 				>
 					RHD
 				</abbr>
-				<span>{$_('home.about.p1_part2')}&nbsp;</span>
+				<span>{$_('home.about.p1_part2')}</span>
+			</p>
+			<p class="text-lg md:text-xl mt-4">
+				<span>{$_('home.about.p2_part1')}</span>
+				<dfn id="def-rhd" class="italic">Right Hand Drive</dfn>
+				<span>{$_('home.about.p2_part2')}</span>
 			</p>
 			<p class="text-lg md:text-xl mt-4">{$_('home.about.p3')}</p>
 

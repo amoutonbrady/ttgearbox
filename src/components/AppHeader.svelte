@@ -67,6 +67,15 @@
 					{$_('header.menu.contact')}
 				</a>
 			</li>
+			<li class="mt-2 md:mt-0 md:ml-4">
+				<a
+					class="hover:underline"
+					on:click="{() => (open = false)}"
+					href="offers"
+				>
+					{$_('header.menu.offers')}
+				</a>
+			</li>
 		</ul>
 	</nav>
 </header>
