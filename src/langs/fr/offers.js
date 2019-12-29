@@ -3,7 +3,7 @@ export default {
 		title: 'Nos offres',
 		button: 'Je choisis cette offre',
 		allPerks: "Tous les bénéfices de l'offre",
-		plus: 'plus les bénéfices suivantes :',
+		plus: 'plus les bénéfices suivants :',
 		section1: {
 			offer1: {
 				text:
