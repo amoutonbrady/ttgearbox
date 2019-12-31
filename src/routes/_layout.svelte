@@ -22,13 +22,20 @@
 	<slot />
 </main>
 
-<footer class="bg-gray-900 text-gray-100 relative z-20">
-	<p
-		class="container mx-auto px-4 py-8 font-bold text-sm uppercase
-		tracking-wide text-right"
-	>
-		&copy; 2019-{currentYear} TT Gearbox.
-	</p>
+<footer class="bg-gray-900 text-gray-100 relative z-20 ">
+	<div class="container mx-auto px-4 py-8 flex justify-end items-center">
+		<a
+			href="/documents/CGVU.pdf"
+			target="blank"
+			rel="noopener"
+			class="block hover:underline"
+		>
+			Conditions générales de ventes
+		</a>
+		<p class="font-bold text-sm uppercase tracking-wide ml-4">
+			&copy; 2019-{currentYear} TT Gearbox.
+		</p>
+	</div>
 </footer>
 
 <Notification />
