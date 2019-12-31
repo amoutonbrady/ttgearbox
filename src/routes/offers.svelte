@@ -19,7 +19,7 @@
 			'Une erreur est surevenue. Merci de bien vouloir rééssayer. Si le problème persiste, veuillez contacter notre service.';
 		try {
 			const ky = (await import('ky')).default;
-			const stripe = Stripe('pk_test_elEdbtq8lGZoQZzon1TVkGBk00MxSMZfLj');
+			const stripe = Stripe('pk_test_9TNrpWqhmsCrdi4XS089IH1J00Ml8MYBOX');
 
 			const { session } = await ky
 				.post('/.netlify/functions/payment', { json })
