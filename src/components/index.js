@@ -5,3 +5,4 @@ export { default as FormInput } from './FormInput.svelte';
 export { default as FormSelect } from './FormSelect.svelte';
 export { default as ServiceCard } from './ServiceCard.svelte';
 export { default as FormTextArea } from './FormTextArea.svelte';
+export { default as Notification } from './Notification.svelte';

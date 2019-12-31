@@ -10,10 +10,13 @@
 	import { _ } from 'svelte-i18n';
 	import { GoodDeal, Offer } from '@/components';
 	import { CheckMarkIcon } from '@/icons';
+	import { notification, STATUS } from '@/stores';
 
 	let success = null;
 
 	const pay = async ({ detail: json }) => {
+		const errorText =
+			'Une erreur est surevenue. Merci de bien vouloir rééssayer. Si le problème persiste, veuillez contacter notre service.';
 		try {
 			const ky = (await import('ky')).default;
 			const stripe = Stripe('pk_test_elEdbtq8lGZoQZzon1TVkGBk00MxSMZfLj');
@@ -26,22 +29,32 @@
 				.redirectToCheckout({
 					sessionId: session.id,
 				})
-				.then(function(result) {
+				.then(result => {
 					// If `redirectToCheckout` fails due to a browser or network
 					// error, display the localized error message to your customer
 					// using `result.error.message`.
 					console.error(result);
+					notification.show({
+						status: STATUS.ERROR,
+						text: result.error.message,
+						duration: 20000,
+					});
 				});
 
 			success = true;
 		} catch (e) {
-			console.error({ e });
+			notification.show({
+				status: STATUS.ERROR,
+				text: errorText,
+				duration: 20000,
+			});
 			success = false;
 		}
 	};
 </script>
 
 <section class="container mx-auto p-4 mt-12">
+	<a class="hidden" href="success">Route to success page</a>
 	<h1 class="text-5xl text-center font-bold text-gray-900">
 		{$_('offers.title')}
 	</h1>

@@ -15,6 +15,8 @@
 	<div class="relative px-4 py-3 flex justify-end z-20 bg-gray-100 md:hidden">
 		<button
 			id="menubutton"
+			name="menubutton"
+			type="menu"
 			on:click="{() => (open = !open)}"
 			aria-controls="menu"
 			aria-haspopup="true"
@@ -71,6 +73,7 @@
 				<a
 					class="hover:underline"
 					on:click="{() => (open = false)}"
+					rel="prefetch"
 					href="offers"
 				>
 					{$_('header.menu.offers')}
