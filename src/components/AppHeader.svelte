@@ -64,19 +64,19 @@
 				<a
 					class="hover:underline"
 					on:click="{() => (open = false)}"
-					href="#contact"
+					rel="prefetch"
+					href="offers"
 				>
-					{$_('header.menu.contact')}
+					{$_('header.menu.offers')}
 				</a>
 			</li>
 			<li class="mt-2 md:mt-0 md:ml-4">
 				<a
 					class="hover:underline"
 					on:click="{() => (open = false)}"
-					rel="prefetch"
-					href="offers"
+					href="#contact"
 				>
-					{$_('header.menu.offers')}
+					{$_('header.menu.contact')}
 				</a>
 			</li>
 		</ul>
