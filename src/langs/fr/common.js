@@ -7,6 +7,7 @@ export default {
 			services: 'Nos Services',
 			contact: 'Contactez-nous',
 			offers: 'Nos offres',
+			testimonies: 'Avis clients',
 		},
 	},
 };

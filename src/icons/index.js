@@ -4,6 +4,8 @@ export { default as SearchIcon } from './Search.svelte';
 export { default as CheckMarkIcon } from './CheckMark.svelte';
 export { default as InstagramIcon } from './Instagram.svelte';
 export { default as FormationIcon } from './Formation.svelte';
+export { default as QuoteOpenIcon } from './QuoteOpen.svelte';
+export { default as QuoteCloseIcon } from './QuoteClose.svelte';
 export { default as InspectionIcon } from './Inspection.svelte';
 export { default as ImportationIcon } from './Importation.svelte';
 export { default as ChevronDownIcon } from './ChevronDown.svelte';

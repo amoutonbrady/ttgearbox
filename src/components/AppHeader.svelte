@@ -64,6 +64,15 @@
 				<a
 					class="hover:underline"
 					on:click="{() => (open = false)}"
+					href="#testimonies"
+				>
+					{$_('header.menu.testimonies')}
+				</a>
+			</li>
+			<li class="mt-2 md:mt-0 md:ml-4">
+				<a
+					class="hover:underline"
+					on:click="{() => (open = false)}"
 					rel="prefetch"
 					href="offers"
 				>

@@ -53,6 +53,40 @@
 	};
 </script>
 
+<svelte:head>
+	<title>{$_('offers.seo.title')}</title>
+	<meta name="description" content="{$_('offers.seo.description')}" />
+
+	<!-- Facebook -->
+	<meta property="og:url" content="https://ttgearbox.com/offers" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="{$_('offers.seo.title')}" />
+	<meta
+		property="og:image"
+		content="https://ttgearbox.com/images/about.jpg"
+	/>
+	<meta property="og:image:alt" content="{$_('offers.seo.altImg')}" />
+	<meta property="og:description" content="{$_('offers.seo.description')}." />
+	<meta property="og:site_name" content="{$_('offers.seo.title')}" />
+	<meta property="og:locale" content="fr_FR" />
+
+	<!-- Twitter -->
+	<meta name="twitter:card" content="summary" />
+	<!-- <meta name="twitter:site" content="@site_account"> -->
+	<meta name="twitter:creator" content="@wbsdgcjfhd" />
+	<meta name="twitter:url" content="https://ttgearbox.com/offers" />
+	<meta name="twitter:title" content="{$_('offers.seo.title')}" />
+	<meta
+		name="twitter:description"
+		content="{$_('offers.seo.description')}."
+	/>
+	<meta
+		name="twitter:image"
+		content="https://ttgearbox.com/images/about.jpg"
+	/>
+	<meta name="twitter:image:alt" content="{$_('offers.seo.altImg')}" />
+</svelte:head>
+
 <main class="overflow-hidden">
 	<section class="container mx-auto p-4 mt-12">
 		<a class="hidden" href="success">Route to success page</a>

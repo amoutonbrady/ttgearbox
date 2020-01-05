@@ -18,7 +18,7 @@
 		FormTextArea,
 	} from '@/components';
 
-	import { LinkIcon } from '@/icons';
+	import { LinkIcon, QuoteOpenIcon, QuoteCloseIcon } from '@/icons';
 
 	const initForm = () => ({
 		firstname: '',
@@ -238,11 +238,11 @@
 	</section>
 
 	<!-- SERVICES -->
-	<section class="bg-gray-200 relative z-30" id="services">
+	<section class="gradient relative z-30" id="services">
 		<div class="container mx-auto px-4 py-20 relative z-30 text-gray-800">
 			<h2
 				class="text-3xl md:text-5xl font-bold leading-tight font-display
-				text-center"
+				text-center text-gray-100"
 			>
 				{$_('home.services.title')}
 			</h2>
@@ -254,10 +254,10 @@
 			<div class="max-w-3xl py-16 mx-auto">
 				<ServiceCard
 					title="{$_('home.services.s1.title')}"
-					className="bg-gray-800 mt-4"
+					className="bg-gray-100 text-gray-800 mt-4"
 				>
 					<svg
-						class="fill-current h-20 w-20"
+						class="hidden md:block fill-current h-20 w-20"
 						viewBox="0 0 24 24"
 						slot="icon"
 					>
@@ -288,10 +288,10 @@
 				</ServiceCard>
 				<ServiceCard
 					title="{$_('home.services.s2.title')}"
-					className="bg-gray-800 mt-4"
+					className="bg-gray-100 text-gray-800 mt-4"
 				>
 					<svg
-						class="fill-current h-20 w-20"
+						class="hidden md:block fill-current h-20 w-20"
 						viewBox="0 0 24 24"
 						slot="icon"
 					>
@@ -314,10 +314,10 @@
 				</ServiceCard>
 				<ServiceCard
 					title="{$_('home.services.s3.title')}"
-					className="bg-gray-800 mt-4"
+					className="bg-gray-100 text-gray-800 mt-4"
 				>
 					<svg
-						class="fill-current h-20 w-20"
+						class="hidden md:block fill-current h-20 w-20"
 						viewBox="0 0 24 24"
 						slot="icon"
 					>
@@ -343,11 +343,11 @@
 				</ServiceCard>
 				<ServiceCard
 					title="{$_('home.services.s4.title')}"
-					className="bg-gray-800 mt-4"
+					className="bg-gray-100 text-gray-800 mt-4"
 					link="/offers"
 				>
 					<svg
-						class="fill-current h-20 w-20"
+						class="hidden md:block fill-current h-20 w-20"
 						viewBox="0 0 24 24"
 						slot="icon"
 					>
@@ -377,15 +377,20 @@
 				</ServiceCard>
 				<ServiceCard
 					title="{$_('home.services.s5.title')}"
-					className="bg-gray-800 mt-4"
+					className="bg-gray-100 text-gray-800 mt-4"
 					link="/offers"
 				>
 					<svg
-						class="fill-current h-20 w-20"
+						class="hidden md:block fill-current h-20 w-20"
 						viewBox="0 0 24 24"
 						slot="icon"
 					>
-						<path d="M12 3L1 9L5 11.18V17.18L12 21L19 17.18V11.18L21 10.09V17H23V9L12 3M18.82 9L12 12.72L5.18 9L12 5.28L18.82 9M17 16L12 18.72L7 16V12.27L12 15L17 12.27V16Z" />
+						<path
+							d="M12 3L1 9L5 11.18V17.18L12 21L19 17.18V11.18L21
+							10.09V17H23V9L12 3M18.82 9L12 12.72L5.18 9L12
+							5.28L18.82 9M17 16L12 18.72L7 16V12.27L12 15L17
+							12.27V16Z"
+						></path>
 					</svg>
 					{$_('home.services.s5.text')}
 					<p
@@ -397,11 +402,11 @@
 				</ServiceCard>
 				<ServiceCard
 					title="{$_('home.services.s6.title')}"
-					className="bg-gray-800 mt-4"
+					className="bg-gray-100 text-gray-800 mt-4"
 					link="/offers"
 				>
 					<svg
-						class="fill-current h-20 w-20"
+						class="hidden md:block fill-current h-20 w-20"
 						viewBox="0 0 24 24"
 						slot="icon"
 					>
@@ -428,10 +433,147 @@
 		</div>
 	</section>
 
+	<section
+		id="testimonies"
+		class="relative py-20 z-20 bg-gray-200 text-gray-800 px-4"
+	>
+		<h2
+			class="text-3xl md:text-5xl font-bold leading-tight font-display
+			text-center text-gray-800 relative z-20"
+		>
+			Nos avis clients
+		</h2>
+
+		<div
+			class="container mx-auto pb-4 overflow-auto mt-6 scrollbar relative
+			z-20"
+		>
+
+			<div class="flex">
+				<article
+					class="relative rounded bg-white px-6 py-10 flex shadow
+					overflow-hidden flex-col"
+					style="min-width: 300px"
+				>
+					<QuoteOpenIcon
+						className="z-10 -mt-16 -ml-10 top-0 left-0 absolute
+						fill-current h-64 w-auto block"
+						style="opacity: 0.05"
+					/>
+					<blockquote class="z-20 relative mb-6 text-black">
+						Très bon service, sérieux, professionnel avec des prix
+						défiant toute concurrence. J’ai préciser le véhicule que
+						je souhaite avoir avec mes options, etc .. et ils ont su
+						trouver. Une équipe au top, je recommande !
+					</blockquote>
+					<QuoteCloseIcon
+						className="z-10 -mb-16 -mr-10 bottom-0 right-0 absolute
+						fill-current h-64 w-auto block"
+						style="opacity: 0.05"
+					/>
+
+					<p
+						class="mt-auto text-gray-600 font-display z-20 relative
+						text-xs uppercase text-right"
+					>
+						&mdash;&nbsp;Kévin
+					</p>
+				</article>
+
+				<article
+					class="relative rounded bg-white px-6 py-10 ml-4 flex shadow
+					flex-col overflow-hidden"
+					style="min-width: 300px"
+				>
+					<QuoteOpenIcon
+						className="z-10 -mt-16 -ml-10 top-0 left-0 absolute
+						fill-current h-64 w-auto block"
+						style="opacity: 0.05"
+					/>
+					<blockquote class="z-20 relative mb-6 text-black">
+						Super attentif, c’est comment arranger les gens quand il
+						le faut. N'hésite pas à répondre aux questions et à
+						donner des informations. Voiture dans un super état, je
+						le recommande vivement!
+					</blockquote>
+					<QuoteCloseIcon
+						className="z-10 -mb-16 -mr-10 bottom-0 right-0 absolute
+						fill-current h-64 w-auto block"
+						style="opacity: 0.05"
+					/>
+
+					<p
+						class="mt-auto text-gray-600 font-display z-20 relative
+						text-xs uppercase text-right"
+					>
+						&mdash;&nbsp;PL
+					</p>
+				</article>
+
+				<article
+					class="relative rounded bg-white px-6 py-10 ml-4 flex shadow
+					overflow-hidden"
+					style="min-width: 300px"
+				>
+					<QuoteOpenIcon
+						className="z-10 -mt-16 -ml-10 top-0 left-0 absolute
+						fill-current h-64 w-auto block"
+						style="opacity: 0.05"
+					/>
+					<blockquote class="z-20 relative mb-6 text-black">
+						Super, rapide, sérieux et à l’écoute
+					</blockquote>
+					<QuoteCloseIcon
+						className="z-10 -mb-16 -mr-10 bottom-0 right-0 absolute
+						fill-current h-64 w-auto block"
+						style="opacity: 0.05"
+					/>
+
+					<p
+						class="mt-auto text-gray-600 font-display z-20 relative
+						text-xs uppercase text-right"
+					>
+						&mdash;&nbsp;Tom
+					</p>
+				</article>
+
+				<article
+					class="relative rounded bg-white px-6 py-10 ml-4 flex shadow
+					flex-col overflow-hidden"
+					style="min-width: 300px"
+				>
+					<QuoteOpenIcon
+						className="z-10 -mt-16 -ml-10 top-0 left-0 absolute
+						fill-current h-64 w-auto block"
+						style="opacity: 0.05"
+					/>
+					<blockquote class="z-20 relative mb-6 text-black">
+						Vous avez assurer et vraiment au top
+					</blockquote>
+					<QuoteCloseIcon
+						className="z-10 -mb-16 -mr-10 bottom-0 right-0 absolute
+						fill-current h-64 w-auto block"
+						style="opacity: 0.05"
+					/>
+
+					<p
+						class="mt-auto text-gray-600 font-display z-20 relative
+						text-xs uppercase text-right"
+					>
+						&mdash;&nbsp;Thibault
+					</p>
+				</article>
+			</div>
+		</div>
+	</section>
+
 	<!-- CONTACT -->
 	<section class="relative z-20 bg-gray-100 text-gray-800" id="contact">
 		<div class="max-w-2xl mx-auto px-4 py-20 ">
-			<h2 class="text-5xl font-bold leading-tight font-display">
+			<h2
+				class="text-3xl md:text-5xl font-bold leading-tight font-display
+				text-center"
+			>
 				{$_('home.contact.title')}
 			</h2>
 
@@ -733,6 +875,48 @@
 
 	.about {
 		height: 50%;
+	}
+
+	.scrollbar::-webkit-scrollbar {
+		height: 10px;
+	}
+
+	.scrollbar::-webkit-scrollbar-track {
+		background-color: #ebebeb;
+		-webkit-border-radius: 10px;
+		border-radius: 10px;
+	}
+
+	.scrollbar::-webkit-scrollbar-thumb {
+		-webkit-border-radius: 10px;
+		border-radius: 10px;
+		background: #999;
+	}
+
+	.gradient {
+		background-image: radial-gradient(
+				circle at 10% 26%,
+				rgba(90, 90, 90, 0.06) 0%,
+				rgba(90, 90, 90, 0.06) 25%,
+				rgba(137, 137, 137, 0.06) 25%,
+				rgba(137, 137, 137, 0.06) 50%,
+				rgba(185, 185, 185, 0.06) 50%,
+				rgba(185, 185, 185, 0.06) 75%,
+				rgba(232, 232, 232, 0.06) 75%,
+				rgba(232, 232, 232, 0.06) 100%
+			),
+			radial-gradient(
+				circle at 46% 66%,
+				rgba(171, 171, 171, 0.06) 0%,
+				rgba(171, 171, 171, 0.06) 25%,
+				rgba(128, 128, 128, 0.06) 25%,
+				rgba(128, 128, 128, 0.06) 50%,
+				rgba(84, 84, 84, 0.06) 50%,
+				rgba(84, 84, 84, 0.06) 75%,
+				rgba(41, 41, 41, 0.06) 75%,
+				rgba(41, 41, 41, 0.06) 100%
+			),
+			linear-gradient(90deg, rgb(107, 35, 237), rgb(61, 203, 252));
 	}
 
 	@media (min-width: 768px) {

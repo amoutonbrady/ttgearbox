@@ -1,5 +1,10 @@
 export default {
 	offers: {
+		seo: {
+			title: `TT Gearbox - Nos Offres`,
+			description: `Retrouver l'ensemble des produits et services proposés par TT Gearbox`,
+			altImg: `Une rue de Londre avec un bus sur le côté`,
+		},
 		title: 'Nos offres',
 		button: 'Je choisis cette offre',
 		allPerks: "Tous les bénéfices de l'offre",
