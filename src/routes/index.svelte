@@ -445,7 +445,7 @@
 		</h2>
 
 		<div
-			class="container mx-auto pb-4 overflow-auto mt-6 scrollbar relative
+			class="container mx-auto pb-4 overflow-auto mt-16 scrollbar relative
 			z-20"
 		>
 
@@ -577,7 +577,7 @@
 				{$_('home.contact.title')}
 			</h2>
 
-			<p class="text-xl md:text-2xl mt-4">{$_('home.contact.p1')}</p>
+			<p class="text-xl md:text-2xl mt-16">{$_('home.contact.p1')}</p>
 
 			<div class="mt-8">
 				<nav>
