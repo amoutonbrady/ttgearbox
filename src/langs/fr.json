@@ -34,7 +34,9 @@
 			"p2_part1": "Qu’est-ce qu’une RHD ? Ce terme signifie en anglais",
 			"p2_part2": "(Volant à droite), il s’agit donc d’un véhicule ayant le volant du côté droit.",
 			"p3": "Nous avons pour but de permettre à tous de pouvoir acquérir un véhicule à moindre coût ! Notre objectif est de pouvoir faire en sorte que le véhicule de vos rêves se retrouve dans votre garage.",
-			"p4": "Faire appel à TT Gearbox, c’est faire appel à une équipe sérieuse et à votre écoute. De plus, nous nous adaptons à nos clients et nous sommes là pour vous accompagner.",
+			"p4": "Faire appel à TT Gearbox, c’est faire appel à une équipe sérieuse et à votre écoute. De plus, nous savons nous adapté à nos clients.",
+			"p5": "Notre promesse : nous adapté à vos besoins et vous accompagnez dans vos choix.",
+			"p6": "Par ailleurs, il n'est pas interdit de circuler avec un véhicule RHD dans l'hexagone. Pourquoi cela n'est pas interdit ? L'Angleterre fait partie de l'Union Européenne, de ce fait les normes de construction sont exactement les mêmes à travers toute l'Europe. Ce qui change, c'est le positionnement de votre volant. Vous devez être en règle au niveau administratif (carte grise, assurance, certificat de vente, etc ... ) Rendez-vous dans nos offres pour plus de renseignement (petite flèche qui envoie aux offres) ",
 			"cta": "Plus d’informations"
 		},
 		"services": {
@@ -63,7 +65,7 @@
 			},
 			"s5": {
 				"title": "Formation",
-				"text": "Vous n’avez jamais conduit une RHD et vous hésitez encore ? Aucun soucis, vous pouvez faire un essai avec notre formateur. Il vous accompagnez pendant 1 heure sur un véhicule RHD en France. (Comment se positionner sur la chaussée, comment appréhender une intersection, comment réaliser un dépassement, le stationnement en RHD, etc... ).",
+				"text": "Vous n’avez jamais conduit une RHD et vous hésitez encore ? Aucun soucis, vous pouvez faire un essai avec notre formateur. Il vous accompagne 1 heure avec un véhicule RHD. (Comment se positionner sur la chaussée, comment appréhender une intersection, comment réaliser un dépassement, le stationnement en RHD, etc... ).",
 				"price": "Voir nos offres"
 			},
 			"s6": {
@@ -138,32 +140,33 @@
 			},
 			"offer2": {
 				"title": "Dossier complet",
-				"l1": "Guide d'achat de votre voiture d'Angleterre",
-				"l2": "Check-list voiture d'Angleterre ",
+				"l1": "Guide d’achat : Permet d’être accompagné",
+				"l2": "Check-list RHD",
 				"l3": "Cetificat de cession valide"
 			},
 			"offer3": {
 				"title": "Dossier complet avec formation",
-				"l1": "Formation RHD"
+				"l1": "Dossier complet",
+				"l2": "Formation à la conduit en RHD"
 			}
 		},
 		"section2": {
 			"title": "Nos offres good deals",
 			"offer1": {
 				"title": "Guide d'achat",
-				"description": "Notre guide d’achat vous permet d’être accompagner durant votre achat. Grâce à lui, vous pourrez avoir une idée sur le déroulement de l’achat et l’importation d’un véhicule provenant d’Angleterre."
+				"description": "Notre guide d’achat vous permet d’être accompagné durant votre achat. Grâce à lui, vous pourrez avoir une idée sur le déroulement de l’achat et l’importation d’un véhicule provenant d’Angleterre."
 			},
 			"offer2": {
 				"title": "Formation RHD",
-				"description": "Vous n’avez jamais conduit une RHD et vous hésitez encore ? Aucun soucis, vous pouvez faire un essai avec notre formateur. Il vous accompagne pendant 1 heure sur un véhicule RHD en France.  Comment se positionner sur la chaussée  Comment appréhender une intersection. Comment réaliser un dépassement. Le stationnement en RHD, etc... Quoi inspecter sur un véhicule RHD."
+				"description": "Vous n’avez jamais conduit une RHD et vous hésitez encore ? Aucun soucis, vous pouvez faire un essai avec notre formateur. Il vous accompagne pendant 1 heure sur un véhicule RHD en France.\n\n > Comment se positionner sur la chaussée\n > Comment appréhender une intersection.\n > Comment réaliser un dépassement.\n > Le stationnement en RHD, etc...\n > Quoi inspecter sur un véhicule RHD."
 			},
 			"offer3": {
 				"title": "Checklist inspection",
-				"description": "Notre checklist vous permet d’être accompagner lors de votre inspection concernant un véhicule provenant d’angleterre."
+				"description": "Notre checklist vous permet d’être accompagné lors de votre inspection concernant un véhicule provenant d’Angleterre."
 			},
 			"offer4": {
 				"title": "Certification de cession",
-				"description": "Notre certificat de cession (facture d’achat) est validé par l'Etat. Celui-ci vous permettra d'acquérir votre véhicule à l’étranger et de faire toutes vos démarches lors de l'immatriculation de votre futur véhicule en France."
+				"description": "Notre certificat de cession (facture d’achat) est validé par l'État. Celui-ci vous permettra d'acquérir votre véhicule à l’étranger et de faire toutes vos démarches lors de l'immatriculation de votre futur véhicule en France."
 			}
 		}
 	}

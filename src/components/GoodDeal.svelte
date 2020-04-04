@@ -10,7 +10,7 @@
 
 <article class="flex flex-col {className}">
 	<Offer on:submit {color} {price} {title} {button} className="text-center" />
-	<p class="mt-6 text-gray-700">
+	<p class="mt-6 text-gray-700 whitespace-pre-line">
 		<slot />
 	</p>
 </article>

@@ -10,7 +10,12 @@
 		FormTextArea,
 	} from '@/components';
 
-	import { LinkIcon, QuoteOpenIcon, QuoteCloseIcon } from '@/icons';
+	import {
+		LinkIcon,
+		QuoteOpenIcon,
+		QuoteCloseIcon,
+		ChevronDownIcon,
+	} from '@/icons';
 
 	const initForm = () => ({
 		firstname: '',
@@ -215,16 +220,39 @@
 
 				<p class="text-lg md:text-xl mt-4">{$_('home.about.p4')}</p>
 
-				<a
-					href="#services"
-					class="px-8 py-3 uppercase tracking-wide font-bold border-2
-					border-gray-900 rounded inline-block mt-12 text-gray-900
-					hover:bg-gray-900 hover:text-gray-100 focus:border-blue-300
-					focus:bg-gray-900 focus:text-gray-100"
-					style="transition: all 300ms ease-in-out"
+				<p class="text-lg md:text-xl mt-4">{$_('home.about.p5')}</p>
+
+				<p class="text-lg md:text-xl mt-4">{$_('home.about.p6')}</p>
+
+				<div
+					class="flex items-center flex-col md:flex-row
+					md:justify-between mt-12"
 				>
-					{$_('home.about.cta')}
-				</a>
+					<a
+						href="#services"
+						class="px-8 py-3 uppercase tracking-wide font-bold
+						border-2 border-gray-900 rounded inline-block
+						text-gray-900 hover:bg-gray-900 hover:text-gray-100
+						focus:border-blue-300 focus:bg-gray-900
+						focus:text-gray-100"
+						style="transition: all 300ms ease-in-out"
+					>
+						{$_('home.about.cta')}
+					</a>
+
+					<a
+						href="/offers"
+						class="text-6xl inline-block p-2 rounded-full border-2
+						border-red-500 text-red-500 leading-none
+						hover:bg-red-500 hover:text-gray-100 focus:border-2
+						focus:border-blue-600 focus:bg-red-500
+						focus:text-gray-100 mt-4"
+						style="transition: all 300ms ease-in-out"
+					>
+						<span class="sr-only">{$_('home.services.link')}</span>
+						<ChevronDownIcon className="fill-current h-8 w-8" />
+					</a>
+				</div>
 			</div>
 		</div>
 	</section>
@@ -238,10 +266,6 @@
 			>
 				{$_('home.services.title')}
 			</h2>
-
-			<!-- <p class="text-xl md:text-2xl mt-4">
-				{$_('home.services.subtitle')}
-			</p> -->
 
 			<div class="max-w-3xl py-16 mx-auto">
 				<ServiceCard
@@ -276,8 +300,8 @@
 					>
 						{$_('home.services.s1.price')}
 					</p>
-
 				</ServiceCard>
+
 				<ServiceCard
 					title="{$_('home.services.s2.title')}"
 					className="bg-gray-100 text-gray-800 mt-4"
@@ -304,6 +328,7 @@
 						{$_('home.services.s2.price')}
 					</p>
 				</ServiceCard>
+
 				<ServiceCard
 					title="{$_('home.services.s3.title')}"
 					className="bg-gray-100 text-gray-800 mt-4"
@@ -333,6 +358,7 @@
 						{$_('home.services.s3.price')}
 					</p>
 				</ServiceCard>
+
 				<ServiceCard
 					title="{$_('home.services.s4.title')}"
 					className="bg-gray-100 text-gray-800 mt-4"
@@ -367,6 +393,7 @@
 						{$_('home.services.s4.price')}
 					</p>
 				</ServiceCard>
+
 				<ServiceCard
 					title="{$_('home.services.s5.title')}"
 					className="bg-gray-100 text-gray-800 mt-4"
@@ -392,6 +419,7 @@
 						{$_('home.services.s5.price')}
 					</p>
 				</ServiceCard>
+
 				<ServiceCard
 					title="{$_('home.services.s6.title')}"
 					className="bg-gray-100 text-gray-800 mt-4"
@@ -420,7 +448,6 @@
 						{$_('home.services.s6.price')}
 					</p>
 				</ServiceCard>
-
 			</div>
 		</div>
 	</section>

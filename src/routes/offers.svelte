@@ -186,7 +186,15 @@
 							className="h-4 fill-current text-purple-300"
 						/>
 						<span class="ml-4">
-							{$_('offers.section1.offer2.l1')}
+							{$_('offers.section1.offer3.l1')}
+						</span>
+					</li>
+					<li class="flex items-center text-left">
+						<CheckMarkIcon
+							className="h-4 fill-current text-purple-300"
+						/>
+						<span class="ml-4">
+							{$_('offers.section1.offer3.l2')}
 						</span>
 					</li>
 				</ul>
