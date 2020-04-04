@@ -40,7 +40,7 @@ exports.handler = async (event) => {
 		const session = await stripe.checkout.sessions.create({
 			payment_method_types: ['card'],
 			shipping_address_collection: {
-				allowed_countries: ['UK', 'FR'],
+				allowed_countries: ['GB', 'FR'],
 			},
 			line_items: [
 				{
