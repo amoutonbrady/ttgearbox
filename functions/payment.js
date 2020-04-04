@@ -7,7 +7,7 @@ const headers = {
 	'Access-Control-Allow-Headers': 'Content-Type',
 };
 
-exports.handler = async event => {
+exports.handler = async (event) => {
 	if (!event.body || event.httpMethod !== 'POST') {
 		return {
 			statusCode: 400,
@@ -39,6 +39,10 @@ exports.handler = async event => {
 	try {
 		const session = await stripe.checkout.sessions.create({
 			payment_method_types: ['card'],
+			billing_address_collection: 'required',
+			shippingAddressCollection: {
+				allowedCountries: ['UK', 'FR'],
+			},
 			line_items: [
 				{
 					name: data.title,
