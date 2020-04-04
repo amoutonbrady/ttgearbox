@@ -1,11 +1,3 @@
-<script context="module">
-	import { register, waitLocale } from 'svelte-i18n';
-
-	register('fr', () => import('@/langs/fr/home'));
-
-	export const preload = async () => waitLocale();
-</script>
-
 <script>
 	import { _ } from 'svelte-i18n';
 	import { onMount } from 'svelte';
