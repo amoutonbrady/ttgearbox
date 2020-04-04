@@ -86,7 +86,7 @@
 			{$_('offers.title')}
 		</h1>
 
-		<div class="grid mt-10">
+		<div class="grid-tt mt-10">
 			<Offer
 				price="{29.99}"
 				title="{$_('offers.section1.offer1.title')}"
@@ -252,7 +252,7 @@
 </main>
 
 <style>
-	.grid {
+	.grid-tt {
 		display: grid;
 		justify-content: center;
 		grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
