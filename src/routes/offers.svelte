@@ -207,7 +207,7 @@
 			{$_('offers.section2.title')}
 		</h2>
 
-		<div class="grid mt-10">
+		<div class="grid-tt mt-10">
 			<GoodDeal
 				title="{$_('offers.section2.offer1.title')}"
 				color="blue"
